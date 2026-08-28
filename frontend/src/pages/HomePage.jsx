@@ -37,7 +37,7 @@ export default function HomePage() {
     <div className='min-h-screen'>
       <NavBar />
 
-      {isRateLimited && <RateLimitedUI />}
+      {true && <RateLimitedUI />}
 
       <div className='max-w-7xl mx-auto p-4 mt-6'>
         {loading && (
