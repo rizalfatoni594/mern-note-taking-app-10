@@ -23,7 +23,7 @@ export default function NoteCard({ note, setNotes }) {
   return (
     <Link
       to={`/note/${note._id}`}
-      className='card bg-base-100 hover:shadow-lg transition-all duration-200 border-t-4 border-solid border-[#00FF9D40]'
+      className='card bg-base-100 shadow-md shadow-primary/10 hover:shadow-xl transition-all duration-200 border-t-6 border-solid border-primary'
     >
       <div className='card-body'>
         <h3 className='card-title text-base-content'>{note.title}</h3>
