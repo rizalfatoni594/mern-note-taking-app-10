@@ -10,7 +10,7 @@ export default function NotesNotFound() {
       <h3 className='text-2xl font-bold'>No notes yet</h3>
       <p className='text-base-content/70'>
         Ready to organize your thoughts? Create your first note to get started
-        on your journee 🚢😀
+        on your Journie 🚢😀
       </p>
       <Link to={'/create'} className='btn btn-primary'>
         Create Your First Note

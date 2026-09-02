@@ -7,7 +7,10 @@ export default function NavBar() {
       <div className='mx-auto max-w-6xl p-4'>
         <div className='flex items-center justify-between'>
           <h1 className='text-3xl font-bold text-primary font-mono tracking-tight'>
-            Journie
+            Journie🪶
+            <span className='text-sm block text-base-content/70'>
+              It stays here, free your mind.
+            </span>
           </h1>
           <div className='flex items-center gap-4'>
             <Link to={'/create'} className='btn btn-primary'>
