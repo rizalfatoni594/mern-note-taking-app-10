@@ -44,7 +44,7 @@ export default function HomePage() {
           <div className='text-center py-10'>
             <h3 className='text-lg text-primary mb-3'> Loading notes... 👣</h3>
             <p className='block text-base-content text-sm'>
-              Hi, thank you for visiting web. Our server takes 50 seconds to
+              Hi, thank you for visiting our web. Our server takes 50 seconds to
               wake up.
             </p>
             <p className='block text-base-content text-sm'>
