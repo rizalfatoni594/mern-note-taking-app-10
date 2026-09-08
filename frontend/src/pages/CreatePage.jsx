@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router';
-import { api } from '../lib/axios.js';
 import { ArrowLeftIcon } from 'lucide-react';
+import toast from 'react-hot-toast';
+import { api } from '../lib/axios.js';
 
 export default function CreatePage() {
   const [title, setTitle] = useState('');
@@ -15,7 +15,7 @@ export default function CreatePage() {
     e.preventDefault();
 
     if (!title.trim() || !content.trim()) {
-      toast.error('All fields are required.');
+      toast.error('Please fill in all the fields properly.');
       return;
     }
 
@@ -27,10 +27,11 @@ export default function CreatePage() {
       navigate('/');
     } catch (error) {
       console.log('Error creating note.', error);
+
       if (error.response.status === 429) {
-        toast.error("Slow down, you're creating notes too fast!", {
+        toast.error("Slow down, you're creating notes too fast.", {
           duration: 4000,
-          icon: '🐧',
+          icon: '😖',
         });
       } else {
         toast.error('Failed to create note.');
@@ -44,43 +45,43 @@ export default function CreatePage() {
     <div className='min-h-screen bg-base-200'>
       <div className='container mx-auto px-4 py-8'>
         <div className='max-w-2xl mx-auto'>
+          {/* back button */}
           <Link to={'/'} className='btn btn-ghost mb-6'>
             <ArrowLeftIcon className='size-5' />
             Back to Notes
           </Link>
 
+          {/* the card */}
           <div className='card bg-base-100'>
             <div className='card-body'>
               <h2 className='card-title text-2xl mb-4'>Create New Note</h2>
               <form onSubmit={handleSubmit}>
-                <div className='form-control mb-4'>
-                  <label className='label'>
-                    <span className='label-text'>Title</span>
-                  </label>
-                  {/* Is input-bordered deprecated from daisyui? */}
+                {/* fieldset is the new replacement for the form-control in daisyui */}
+                {/* form-control for title */}
+                <fieldset className='fieldset mb-4'>
+                  <legend className='fieldset-legend'>Title</legend>
                   <input
                     type='text'
-                    placeholder='Note Title'
-                    className='input input-bordered'
+                    placeholder='Note title'
+                    className='input'
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                   />
-                </div>
+                </fieldset>
 
-                <div className='form-control mb-4'>
-                  <label className='label'>
-                    <span className='label-text'>Content</span>
-                  </label>
-                  {/* Is textarea-bordered deprecated from daisyui? */}
+                {/* form-control for content */}
+                <fieldset className='fieldset mb-4'>
+                  <legend className='fieldset-legend'>Content</legend>
                   <textarea
                     type='text'
                     placeholder='Write your note here...'
-                    className='textarea textarea-bordered'
+                    className='textarea h-32'
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                   />
-                </div>
+                </fieldset>
 
+                {/* submit button */}
                 <div className='card-actions justify-end'>
                   <button
                     type='submit'

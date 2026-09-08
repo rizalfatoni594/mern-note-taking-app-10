@@ -1,4 +1,4 @@
-function formatDate(date) {
+function formateDate(date) {
   return date.toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -6,4 +6,4 @@ function formatDate(date) {
   });
 }
 
-export { formatDate };
+export { formateDate };
